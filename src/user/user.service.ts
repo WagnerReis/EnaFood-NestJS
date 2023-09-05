@@ -16,8 +16,12 @@ export class UserService {
     return createdUser.save();
   }
 
-  findAll() {
-    const users = this.userModel.find();
+  findAll({ page, limit, sort }) {
+    const users = this.userModel.find(
+      {},
+      {},
+      { skip: page * limit, limit, sort },
+    );
     return users;
   }
 

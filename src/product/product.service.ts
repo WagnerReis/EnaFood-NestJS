@@ -16,13 +16,21 @@ export class ProductService {
     return createProduct.save();
   }
 
-  findAll() {
-    const products = this.productModel.find();
+  findAll({ page, limit, sort }) {
+    const products = this.productModel.find(
+      {},
+      {},
+      { skip: page * limit, limit, sort },
+    );
     return products;
   }
 
-  findAvailables() {
-    const availableProducts = this.productModel.find({ available: true });
+  findAvailables({ page, limit, sort }) {
+    const availableProducts = this.productModel.find(
+      { available: true },
+      {},
+      { skip: page * limit, limit, sort },
+    );
     return availableProducts;
   }
 
