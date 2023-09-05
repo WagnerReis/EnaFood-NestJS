@@ -12,13 +12,18 @@ export const AddresSchema = new mongoose.Schema(
   },
 );
 
-export const UserSchema = new mongoose.Schema({
-  name: String,
-  email: {
-    type: String,
-    required: true,
-    unique: true,
+export const UserSchema = new mongoose.Schema(
+  {
+    name: String,
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: String,
+    address: AddresSchema,
   },
-  password: String,
-  address: AddresSchema,
-});
+  {
+    timestamps: true,
+  },
+);
