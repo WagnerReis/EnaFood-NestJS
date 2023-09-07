@@ -33,7 +33,7 @@ export class UserService {
     return user;
   }
 
-  findByEmail(email: string) {
+  async findByEmail(email: string): Promise<User | undefined> {
     const user = this.userModel.findOne({
       email,
     });
