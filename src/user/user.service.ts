@@ -33,6 +33,14 @@ export class UserService {
     return user;
   }
 
+  findByEmail(email: string) {
+    const user = this.userModel.findOne({
+      email,
+    });
+
+    return user;
+  }
+
   update(id: string, updateUserDto: UpdateUserDto) {
     return this.userModel.updateOne({ _id: id }, { $set: updateUserDto });
   }
