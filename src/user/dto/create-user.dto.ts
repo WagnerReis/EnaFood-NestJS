@@ -7,7 +7,7 @@ import {
   IsStrongPassword,
 } from 'class-validator';
 
-class AddressDTO {
+export class AddressDTO {
   @IsString()
   @IsNotEmpty()
   city: string;
